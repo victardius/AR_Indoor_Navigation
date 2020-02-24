@@ -256,7 +256,6 @@ GameObject:
   - component: {fileID: 1088895135}
   - component: {fileID: 1088895134}
   - component: {fileID: 1088895133}
-  - component: {fileID: 1088895137}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -338,19 +337,6 @@ Transform:
   m_Father: {fileID: 278794351}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1088895137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1088895132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04df7c2455c741843800f6eaeaa0081f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trackedImageManager: {fileID: 1784160103}
 --- !u!1 &1221722132
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +406,7 @@ GameObject:
   - component: {fileID: 1784160102}
   - component: {fileID: 1784160101}
   - component: {fileID: 1784160103}
+  - component: {fileID: 1784160104}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -470,7 +457,22 @@ MonoBehaviour:
   m_SerializedLibrary: {fileID: 11400000, guid: 3424c9d8b87122644a04812e06ec2654,
     type: 2}
   m_MaxNumberOfMovingImages: 1
-  m_TrackedImagePrefab: {fileID: 1088895132}
+  m_TrackedImagePrefab: {fileID: 3312728602301253215, guid: 6674bbe46f2f58c4bbe883b89cedce71,
+    type: 3}
+--- !u!114 &1784160104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784160100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04df7c2455c741843800f6eaeaa0081f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_WorldSpaceCanvasCamera: {fileID: 0}
+  m_DefaultTexture: {fileID: 0}
 --- !u!1 &1927648441
 GameObject:
   m_ObjectHideFlags: 0

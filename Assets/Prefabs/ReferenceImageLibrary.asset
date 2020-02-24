@@ -21,7 +21,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 14038873781467288746
       m_GuidHigh: 9049561461332858378
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 0
+    m_Size: {x: 0.075, y: 0.1}
+    m_SpecifySize: 1
     m_Name: IMG_20200224_150112
-    m_Texture: {fileID: 0}
+    m_Texture: {fileID: 2800000, guid: b6e714aa1952c2d40a56cfd33380967d, type: 3}
