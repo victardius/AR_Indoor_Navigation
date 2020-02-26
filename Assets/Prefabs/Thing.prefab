@@ -225,6 +225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 690927645347207743}
   - component: {fileID: 690927645347207712}
+  - component: {fileID: 417792388561985042}
   m_Layer: 0
   m_Name: Thing
   m_TagString: Untagged
@@ -260,3 +261,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DestroyOnRemoval: 1
+--- !u!362 &417792388561985042
+WorldAnchor:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690927645347207742}
+  serializedVersion: 2
