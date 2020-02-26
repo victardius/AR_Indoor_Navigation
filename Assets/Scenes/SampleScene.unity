@@ -807,8 +807,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04df7c2455c741843800f6eaeaa0081f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_WorldSpaceCanvasCamera: {fileID: 0}
-  m_DefaultTexture: {fileID: 0}
+  m_WorldSpaceCanvasCamera: {fileID: 1927648442}
+  m_DefaultTexture: {fileID: 2800000, guid: b6e714aa1952c2d40a56cfd33380967d, type: 3}
 --- !u!114 &1784160105
 MonoBehaviour:
   m_ObjectHideFlags: 0
