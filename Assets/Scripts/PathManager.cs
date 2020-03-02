@@ -21,7 +21,7 @@ public class PathManager : MonoBehaviour
     private Transform player = null;
 
     private KeyPoint currentPoint = null;
-    private GameObject[] objectives = null;
+    private List<GameObject> objectives = null;
     private int currentPointIndex = 0;
 
     private void Awake()
@@ -39,7 +39,7 @@ public class PathManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (currentObjective < objectives.Length)
+        if (currentObjective < objectives.Count)
         {
             if (!objectives[currentObjective].activeSelf)
                 objectives[currentObjective].SetActive(true);
