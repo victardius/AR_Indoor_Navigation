@@ -21,12 +21,21 @@ public class KeyPoint : MonoBehaviour
     private Object nodePrefab = null;
 
     public List<GameObject> Nodes { get { return nodes; } }
-    public KeyPointType Type { get { return type; } }
+    public KeyPointType Type { get { return type; } set { type = value; } }
 
     private Vector3 position = Vector3.zero;
 
+    private void Start()
+    {
+        if (Type != KeyPointType.End)
+        {
+            GenerateNodes();
+        }
+    }
+
 #if UNITY_EDITOR
     [ContextMenu("Generate nodes")]
+#endif
     public void GenerateNodes()
     {
         position = transform.position;
@@ -54,9 +63,9 @@ public class KeyPoint : MonoBehaviour
         }
         while (!position.Equals(nextPoint.transform.position));
     }
-#endif
 }
 
+[System.Serializable]
 public enum KeyPointType
 {
     Start,

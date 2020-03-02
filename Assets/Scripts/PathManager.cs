@@ -9,7 +9,7 @@ public class PathManager : MonoBehaviour
     private int currentObjective = 0;
 
     [SerializeField]
-    private KeyPoint[] keyPoints = null;
+    private List<KeyPoint> keyPoints = null;
 
     [SerializeField]
     private float detectionDistance = 2f;
@@ -20,14 +20,29 @@ public class PathManager : MonoBehaviour
     [SerializeField]
     private Transform player = null;
 
+    [SerializeField]
+    private GameObject keyPointPrefab = null;
+
     private KeyPoint currentPoint = null;
     private List<GameObject> objectives = null;
     private int currentPointIndex = 0;
 
-    public GameObject CurrentObjective { get { return objectives[currentObjective]; } }
+    public GameObject CurrentObjective { get { if (currentObjective < objectives.Count) return objectives[currentObjective]; else return objectives[0]; } }
+    public bool DestinationReached { get; private set; } = false;
 
     private void Awake()
     {
+        if (keyPoints == null)
+            keyPoints = new List<KeyPoint>();
+
+        foreach (KeyValuePair<VectorInfo, KeyPointType> pair in PlayerManager.PositionInfo.Points)
+        {
+            GameObject point = Instantiate(keyPointPrefab);
+            point.transform.position = pair.Key.Position;
+            point.GetComponent<KeyPoint>().Type = pair.Value;
+            keyPoints.Add(point.GetComponent<KeyPoint>());
+        }
+
         try
         {
             currentPoint = keyPoints[currentPointIndex];
@@ -50,7 +65,7 @@ public class PathManager : MonoBehaviour
                 objectives[currentObjective++].SetActive(false);
             }
         }
-        else if (currentPointIndex < keyPoints.Length - 1)
+        else if (currentPointIndex < keyPoints.Count - 1)
         {
             currentPoint = keyPoints[++currentPointIndex];
 
@@ -61,6 +76,7 @@ public class PathManager : MonoBehaviour
                 //Play a keypoint type voiceline aswell
                 case KeyPointType.End:
                     message = "You have reached the destination";
+                    DestinationReached = true;
                     break;
                 case KeyPointType.Left:
                     message = "Turn left";
@@ -77,8 +93,8 @@ public class PathManager : MonoBehaviour
 
             if (currentPoint.Type != KeyPointType.End)
             {
-                objectives = currentPoint.Nodes;
                 currentObjective = 0;
+                objectives = currentPoint.Nodes;
             }
         }
     }

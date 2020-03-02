@@ -14,20 +14,50 @@ public class PlayerManager : MonoBehaviour
     private bool SeeingNode = true;
     private GameObject nextNode { get { return pathManager.CurrentObjective; } }
     private Vector3 directionToPlayerCamera = Vector3.zero;
+    private static PointPositionInfo positionInfo;
+
+    public static PointPositionInfo PositionInfo
+    {
+        get
+        {
+            if (positionInfo == null)
+            {
+                positionInfo = new PointPositionInfo();
+                PointPositionInfo.LoadSave();
+            }
+            return positionInfo;
+        }
+        set
+        {
+            positionInfo = value;
+        }
+    }
 
     private void FixedUpdate()
     {
-        directionToPlayerCamera = transform.position - nextNode.transform.position;
-        float dotProduct = Vector3.Dot(directionToPlayerCamera.normalized, transform.forward);
+        if (!pathManager.DestinationReached) 
+        {
+            directionToPlayerCamera = transform.position - nextNode.transform.position;
+            float dotProduct = Vector3.Dot(directionToPlayerCamera.normalized, transform.forward);
 
-        if (SeeingNode && dotProduct > -visionArc)
-        {
-            SeeingNode = false;
-            Handheld.Vibrate();
+            if (SeeingNode && dotProduct > -visionArc)
+            {
+                SeeingNode = false;
+                Handheld.Vibrate();
+            }
+            else if (dotProduct < -visionArc)
+            {
+                SeeingNode = true;
+            }
         }
-        else if (dotProduct < -visionArc)
-        {
-            SeeingNode = true;
-        }
+    }
+
+    public void SavePositionPoint(int pointType)
+    {
+        KeyPointType type = (KeyPointType)pointType;
+
+        PositionInfo.AddKeyPoint(transform.position, type);
+
+        PointPositionInfo.SaveGame();
     }
 }
