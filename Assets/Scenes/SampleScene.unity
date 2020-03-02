@@ -998,7 +998,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1776513018}
   - component: {fileID: 1776513019}
-  - component: {fileID: 1776513020}
   m_Layer: 0
   m_Name: Path
   m_TagString: Untagged
@@ -1042,19 +1041,6 @@ MonoBehaviour:
   detectionDistance: 1.5
   text: {fileID: 881291810}
   player: {fileID: 1927648446}
---- !u!114 &1776513020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1776513017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 964a46481d964a945b49f7ce71f26ea4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeDistance: 2.5
 --- !u!1 &1784160100
 GameObject:
   m_ObjectHideFlags: 0
