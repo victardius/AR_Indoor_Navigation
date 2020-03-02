@@ -24,6 +24,8 @@ public class PathManager : MonoBehaviour
     private List<GameObject> objectives = null;
     private int currentPointIndex = 0;
 
+    public GameObject CurrentObjective { get { return objectives[currentObjective]; } }
+
     private void Awake()
     {
         try
