@@ -17,7 +17,7 @@ public class VoicelineManager : MonoBehaviour
     public void PlayVoiceline(KeyPointType type)
     {
         foreach (AudioDirection direction in directionalVoicelines)
-        {
+        { 
             if (direction.Type == type)
             {
                 audioSource.PlayOneShot(direction.Voiceline);

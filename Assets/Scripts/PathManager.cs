@@ -20,11 +20,14 @@ public class PathManager : MonoBehaviour
     [SerializeField]
     private Transform player = null;
 
+    [SerializeField]
+    private VoicelineManager voiceline = null;
+
     private KeyPoint currentPoint = null;
     private List<GameObject> objectives = null;
     private int currentPointIndex = 0;
 
-    public GameObject CurrentObjective { get { return objectives[currentObjective]; } }
+    public GameObject CurrentObjective { get { if (currentObjective < objectives.Count) return objectives[currentObjective]; else return objectives[0]; } }
 
     private void Awake()
     {
@@ -80,6 +83,8 @@ public class PathManager : MonoBehaviour
                 objectives = currentPoint.Nodes;
                 currentObjective = 0;
             }
+
+            voiceline.PlayVoiceline(currentPoint.Type);
         }
     }
 }

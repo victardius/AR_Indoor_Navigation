@@ -11,7 +11,7 @@ public class AudioDirection : ScriptableObject
     [SerializeField]
     private KeyPointType type = KeyPointType.End;
 
-    public AudioClip Voiceline { get; }
+    public AudioClip Voiceline { get { return clip; } }
 
-    public KeyPointType Type { get; }
+    public KeyPointType Type { get { return type; } }
 }

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7ee286a8b0f904da4e55ef217d9f7b, type: 3}
   m_Name: TurnRight
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
-  type: 4
+  clip: {fileID: 8300000, guid: df3e573fa60bb1046917a5bc7b4629fc, type: 3}
+  type: 2
