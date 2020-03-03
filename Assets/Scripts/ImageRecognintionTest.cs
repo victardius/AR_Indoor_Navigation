@@ -16,6 +16,8 @@ public class ImageRecognintionTest : MonoBehaviour
 
     ARTrackedImageManager m_TrackedImageManager;
 
+    private int currentPoint = -1;
+
     void Awake()
     {
         m_TrackedImageManager = GetComponent<ARTrackedImageManager>();
@@ -33,7 +35,7 @@ public class ImageRecognintionTest : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //debugText.text = m_WorldSpaceCanvasCamera.transform.position + "";
+        debugText.text = m_WorldSpaceCanvasCamera.transform.position + " ";
     }
 
     void UpdateInfo(ARTrackedImage trackedImage)
@@ -51,10 +53,15 @@ public class ImageRecognintionTest : MonoBehaviour
             //        position = new Vector3(0, 0, 5);
             //        break;
             //}
-            transform.position = pathManager.KeyPoints[pointIndex].transform.position;
-            transform.rotation = pathManager.KeyPoints[pointIndex].transform.rotation;
-            m_WorldSpaceCanvasCamera.transform.localPosition = Vector3.zero;
-            debugText.text = m_WorldSpaceCanvasCamera.transform.position + " " + pointIndex;
+            //transform.position = pathManager.KeyPoints[pointIndex].transform.position;
+            //transform.rotation = pathManager.KeyPoints[pointIndex].transform.rotation;
+            //m_WorldSpaceCanvasCamera.transform.localPosition = Vector3.zero;
+            if (currentPoint != pointIndex)
+            {
+                pathManager.KeyPoints[pointIndex].transform.position += m_WorldSpaceCanvasCamera.transform.localPosition;
+                pathManager.KeyPoints[pointIndex].transform.rotation *= m_WorldSpaceCanvasCamera.transform.localRotation;
+                currentPoint = pointIndex;
+            }
         }
     }
 
@@ -72,3 +79,4 @@ public class ImageRecognintionTest : MonoBehaviour
             UpdateInfo(trackedImage);
     }
 }
+
