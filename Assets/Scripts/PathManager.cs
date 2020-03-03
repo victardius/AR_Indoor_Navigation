@@ -28,6 +28,7 @@ public class PathManager : MonoBehaviour
     private int currentPointIndex = 0;
 
     public GameObject CurrentObjective { get { if (currentObjective < objectives.Count) return objectives[currentObjective]; else return objectives[0]; } }
+    public KeyPoint[] KeyPoints { get { return keyPoints; } }
 
     private void Awake()
     {

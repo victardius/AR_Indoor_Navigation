@@ -21,7 +21,27 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 14038873781467288746
       m_GuidHigh: 9049561461332858378
-    m_Size: {x: 0.075, y: 0.1}
+    m_Size: {x: 0.03456, y: 0.046079997}
     m_SpecifySize: 1
-    m_Name: IMG_20200224_150112
+    m_Name: 00Cup
     m_Texture: {fileID: 2800000, guid: b6e714aa1952c2d40a56cfd33380967d, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 4889395874328075893
+      m_GuidHigh: 3629775205620542339
+    m_SerializedTextureGuid:
+      m_GuidLow: 11314196134814256254
+      m_GuidHigh: 2689180932592961739
+    m_Size: {x: 0.4608, y: 0.3456}
+    m_SpecifySize: 1
+    m_Name: 01Desktop
+    m_Texture: {fileID: 2800000, guid: 7eb38c7e19709d04cb08f56fcfe35125, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5606136840816734289
+      m_GuidHigh: 5392943200741179789
+    m_SerializedTextureGuid:
+      m_GuidLow: 6400848886640120315
+      m_GuidHigh: 11575607817137915064
+    m_Size: {x: 1, y: 1.3333334}
+    m_SpecifySize: 1
+    m_Name: 00Poop
+    m_Texture: {fileID: 2800000, guid: 352391fb622658d4b884bdbffad1a4a0, type: 3}
