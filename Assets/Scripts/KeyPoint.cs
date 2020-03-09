@@ -26,7 +26,6 @@ public class KeyPoint : MonoBehaviour
     private Vector3 position = Vector3.zero;
 
 #if UNITY_EDITOR
-    [ContextMenu("Generate nodes")]
     public void GenerateNodes()
     {
         position = transform.position;

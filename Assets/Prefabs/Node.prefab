@@ -108,7 +108,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 08d70ca129d084244a6c2cb1092d795a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -119,7 +119,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 690927645347207712}
   - component: {fileID: 417792388561985042}
   m_Layer: 0
-  m_Name: Thing
+  m_Name: Node
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
