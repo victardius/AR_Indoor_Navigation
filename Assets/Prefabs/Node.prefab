@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 690927644536206029}
   - component: {fileID: 690927644536206066}
   - component: {fileID: 690927644536206065}
+  - component: {fileID: 1152463524654752680}
+  - component: {fileID: 6608673704912305141}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -215,6 +217,27 @@ MonoBehaviour:
   occlusionEnabled: 0
   occlusionIntensity: 1
   quality: 2
+--- !u!114 &1152463524654752680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690927644536206028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb898793194e03f4bb10dba03ec2cb70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DestroyOnRemoval: 1
+--- !u!362 &6608673704912305141
+WorldAnchor:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690927644536206028}
+  serializedVersion: 2
 --- !u!1 &690927645347207742
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,8 +247,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 690927645347207743}
-  - component: {fileID: 690927645347207712}
-  - component: {fileID: 417792388561985042}
   m_Layer: 0
   m_Name: Node
   m_TagString: Untagged
@@ -248,24 +269,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &690927645347207712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 690927645347207742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb898793194e03f4bb10dba03ec2cb70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_DestroyOnRemoval: 1
---- !u!362 &417792388561985042
-WorldAnchor:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 690927645347207742}
-  serializedVersion: 2
