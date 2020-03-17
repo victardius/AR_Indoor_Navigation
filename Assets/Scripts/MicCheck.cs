@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
 
 public class MicCheck : MonoBehaviour
 {
+    private void Awake()
+    {
+        Permission.RequestUserPermission(Permission.Microphone);
+    }
     // Start is called before the first frame update
     void Start()
     {
