@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -18,22 +19,23 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private AudioClip notSeeingClip = null;
 
+    [SerializeField]
+    private Slider volumeSlider = null;
+
     private bool SeeingNode = true;
     private GameObject nextNode { get { return pathManager.CurrentObjective; } }
     private Vector3 directionToPlayerCamera = Vector3.zero;
     private float vol = 0;
     private bool playing = false;
-    private Vibration vibration = null;
-
-    private void Awake()
-    {
-        vibration = GetComponent<Vibration>();
-    }
+    private float listenerVolume = 0;
 
     private void Start()
     {
         AudioSource source = nextNode.GetComponentInChildren<AudioSource>();
         vol = source.volume;
+
+        volumeSlider.value = 1;
+        listenerVolume = AudioListener.volume;
     }
 
     private void Update()
@@ -65,6 +67,8 @@ public class PlayerManager : MonoBehaviour
         {
             SeeingNode = true;
         }
+
+        AudioListener.volume = listenerVolume * volumeSlider.value;
     }
 
     IEnumerator ChangeClip(AudioClip clip)
