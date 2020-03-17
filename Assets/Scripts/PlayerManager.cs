@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+
     [SerializeField]
     private PathManager pathManager = null;
 
@@ -22,8 +23,14 @@ public class PlayerManager : MonoBehaviour
     private Vector3 directionToPlayerCamera = Vector3.zero;
     private float vol = 0;
     private bool playing = false;
+    private Vibration vibration = null;
 
     private void Awake()
+    {
+        vibration = GetComponent<Vibration>();
+    }
+
+    private void Start()
     {
         AudioSource source = nextNode.GetComponentInChildren<AudioSource>();
         vol = source.volume;
@@ -49,7 +56,9 @@ public class PlayerManager : MonoBehaviour
                     StartCoroutine(ChangeClip(notSeeingClip));
                 }
                 SeeingNode = false;
-                Handheld.Vibrate();
+                //First number is lenght, second is strength from 0 to 255 then it repeats so every value has to be a pair.
+                long[] timings = { 500, 200, 500, 100, 500, 200 };
+                Vibration.CreateWaveform(timings, -1);
             }
         }
         else if (dotProduct < -visionArc)
@@ -77,11 +86,5 @@ public class PlayerManager : MonoBehaviour
         source.Play();
 
         playing = false;
-        //while (time < 0.5f)
-        //{
-        //    time += Time.deltaTime;
-        //    source.volume = vol * (time / 0.5f);
-        //    yield return null;
-        //}
     }
 }
