@@ -367,6 +367,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 751134482}
     m_Modifications:
+    - target: {fileID: 690927644536206028, guid: 911997ed784ef294caeb9490d18c0827,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 690927645347207742, guid: 911997ed784ef294caeb9490d18c0827,
         type: 3}
       propertyPath: m_Name
@@ -431,6 +436,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452117637074713422, guid: 911997ed784ef294caeb9490d18c0827,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 911997ed784ef294caeb9490d18c0827, type: 3}
@@ -1638,6 +1648,8 @@ MonoBehaviour:
   text: {fileID: 881291810}
   player: {fileID: 1927648446}
   voiceline: {fileID: 1029472982}
+  activeMaterial: {fileID: 2100000, guid: fbf5af65c21b4464b8da01cd5a556154, type: 2}
+  disabledMaterial: {fileID: 2100000, guid: 8d3f850d6469c9d43b5cfe7229e7c1a2, type: 2}
 --- !u!1 &1784160100
 GameObject:
   m_ObjectHideFlags: 0

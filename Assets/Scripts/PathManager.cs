@@ -23,6 +23,12 @@ public class PathManager : MonoBehaviour
     [SerializeField]
     private VoicelineManager voiceline = null;
 
+    [SerializeField]
+    private Material activeMaterial = null;
+
+    [SerializeField]
+    private Material disabledMaterial = null;
+
     private KeyPoint currentPoint = null;
     private List<GameObject> objectives = null;
     private int currentPointIndex = 0;
@@ -40,18 +46,23 @@ public class PathManager : MonoBehaviour
             Debug.Log(e);
         }
 
-        objectives = currentPoint.Nodes;
+        ActivateObjectives();
     }
 
     private void FixedUpdate()
     {
         if (currentObjective < objectives.Count)
         {
-            if (!objectives[currentObjective].activeSelf)
-                objectives[currentObjective].SetActive(true);
+            //if (!objectives[currentObjective].activeSelf)
+            //{
+            //    objectives[currentObjective].GetComponent<MaterialController>().SetMaterial(activeMaterial);
+            //    objectives[currentObjective].GetComponentInChildren<AudioSource>().Play();
+            //}
             if (Vector3.Distance(objectives[currentObjective].transform.position, player.position) < detectionDistance)
             {
                 objectives[currentObjective++].SetActive(false);
+                objectives[currentObjective].GetComponent<MaterialController>().SetMaterial(activeMaterial);
+                objectives[currentObjective].GetComponentInChildren<AudioSource>().Play();
             }
         }
         else if (currentPointIndex < keyPoints.Length - 1)
@@ -81,11 +92,25 @@ public class PathManager : MonoBehaviour
 
             if (currentPoint.Type != KeyPointType.End)
             {
-                objectives = currentPoint.Nodes;
-                currentObjective = 0;
+                ActivateObjectives();
             }
 
             voiceline.PlayVoiceline(currentPoint.Type);
         }
+    }
+
+    private void ActivateObjectives()
+    {
+        objectives = currentPoint.Nodes;
+        currentObjective = 0;
+
+        foreach (GameObject gO in objectives)
+        {
+            gO.GetComponent<MaterialController>().SetMaterial(disabledMaterial);
+            gO.SetActive(true);
+        }
+
+        objectives[currentObjective].GetComponent<MaterialController>().SetMaterial(activeMaterial);
+        objectives[currentObjective].GetComponentInChildren<AudioSource>().Play();
     }
 }
