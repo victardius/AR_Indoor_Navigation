@@ -110,7 +110,10 @@ public class PathManager : MonoBehaviour
             gO.SetActive(true);
         }
 
-        objectives[currentObjective].GetComponent<MaterialController>().SetMaterial(activeMaterial);
-        objectives[currentObjective].GetComponentInChildren<AudioSource>().Play();
+        if (objectives.Count > 0)
+        {
+            objectives[currentObjective].GetComponent<MaterialController>().SetMaterial(activeMaterial);
+            objectives[currentObjective].GetComponentInChildren<AudioSource>().Play();
+        }
     }
 }
