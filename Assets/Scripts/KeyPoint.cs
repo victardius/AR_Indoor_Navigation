@@ -32,6 +32,15 @@ public class KeyPoint : MonoBehaviour
         Vector3 nextPosition;
         Vector3 movement;
 
+        if (nodes.Count > 0)
+        {
+            foreach(GameObject go in nodes)
+            {
+                DestroyImmediate(go);
+            }
+            nodes.Clear();
+        }
+
         do
         {
             GameObject node = (GameObject)PrefabUtility.InstantiatePrefab(nodePrefab);
