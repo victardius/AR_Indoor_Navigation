@@ -61,8 +61,11 @@ public class PathManager : MonoBehaviour
             if (Vector3.Distance(objectives[currentObjective].transform.position, player.position) < detectionDistance)
             {
                 objectives[currentObjective++].SetActive(false);
-                objectives[currentObjective].GetComponent<MaterialController>().SetMaterial(activeMaterial);
-                objectives[currentObjective].GetComponentInChildren<AudioSource>().Play();
+                if (currentObjective < objectives.Count)
+                {
+                    objectives[currentObjective].GetComponent<MaterialController>().SetMaterial(activeMaterial);
+                    objectives[currentObjective].GetComponentInChildren<AudioSource>().Play();
+                }
             }
         }
         else if (currentPointIndex < keyPoints.Length - 1)

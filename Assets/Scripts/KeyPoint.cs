@@ -28,6 +28,7 @@ public class KeyPoint : MonoBehaviour
 #if UNITY_EDITOR
     public void GenerateNodes()
     {
+        transform.LookAt(nextPoint.transform);
         position = transform.position;
         Vector3 nextPosition;
         Vector3 movement;
