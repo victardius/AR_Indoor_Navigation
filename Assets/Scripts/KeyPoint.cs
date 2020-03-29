@@ -57,6 +57,7 @@ public class KeyPoint : MonoBehaviour
             }
 
             node.transform.position = position;
+            node.transform.rotation = transform.rotation;
             node.transform.parent = transform;
             nodes.Add(node);
         }
