@@ -2647,6 +2647,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 357926200798184070, guid: 7de7b8d622cccc04c8ef4fe8da173fb8,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 921787255861455871, guid: 7de7b8d622cccc04c8ef4fe8da173fb8,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 921787256351350883, guid: 7de7b8d622cccc04c8ef4fe8da173fb8,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 921787256591905739, guid: 7de7b8d622cccc04c8ef4fe8da173fb8,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000,
+        type: 0}
     - target: {fileID: 921787257021309716, guid: 7de7b8d622cccc04c8ef4fe8da173fb8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2727,6 +2751,24 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5349156219052046143, guid: 7de7b8d622cccc04c8ef4fe8da173fb8,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 5628366099552748371, guid: 7de7b8d622cccc04c8ef4fe8da173fb8,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 6027573803092463760, guid: 7de7b8d622cccc04c8ef4fe8da173fb8,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000,
+        type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7de7b8d622cccc04c8ef4fe8da173fb8, type: 3}
 --- !u!4 &1572610734 stripped

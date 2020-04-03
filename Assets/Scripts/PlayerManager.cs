@@ -29,6 +29,8 @@ public class PlayerManager : MonoBehaviour
     private bool playing = false;
     private float listenerVolume = 0;
 
+    public static Transform PlayerPos { get; private set; }
+
     private void Start()
     {
         AudioSource source = nextNode.GetComponentInChildren<AudioSource>();
@@ -36,6 +38,8 @@ public class PlayerManager : MonoBehaviour
 
         volumeSlider.value = 1;
         listenerVolume = AudioListener.volume;
+
+        PlayerPos = transform;
     }
 
     private void Update()
