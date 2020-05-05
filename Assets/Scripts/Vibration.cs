@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Third party script to manage vibrations.
+/// </summary>
 public class Vibration : MonoBehaviour
 {
 

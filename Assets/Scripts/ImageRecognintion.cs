@@ -1,61 +1,71 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.XR.ARSubsystems;
 using UnityEngine.XR.ARFoundation;
-public class ImageRecognintionTest : MonoBehaviour
+using UnityEngine.XR.ARSubsystems;
+
+/// <summary>
+/// Resets position that is set depending on identified images in <see cref="IReferenceImageLibrary"/>.
+/// </summary>
+public class ImageRecognintion : MonoBehaviour
 {
+    /// <summary>
+    /// The <see cref="GameObject"/> that represents the device and its facing.
+    /// </summary>
     [SerializeField]
     [Tooltip("The camera to set on the world space UI canvas for each instantiated image info.")]
     Camera m_WorldSpaceCanvasCamera;
 
-    [SerializeField]
-    private Text debugText = null;
-
+    /// <summary>
+    /// The <see cref="PathManager"/> that keeps track of the current path being traversed.
+    /// </summary>
     [SerializeField]
     private PathManager pathManager = null;
 
+    /// <summary>
+    /// The image tracking manager from the ARFoundation package.
+    /// </summary>
     ARTrackedImageManager m_TrackedImageManager;
 
+    /// <summary>
+    /// The current point used for comparisons to the image library.
+    /// </summary>
     private int currentPoint = -1;
 
+    /// <summary>
+    /// Assigns the <see cref="ARTrackedImageManager"/>.
+    /// </summary>
     void Awake()
     {
         m_TrackedImageManager = GetComponent<ARTrackedImageManager>();
     }
 
+    /// <summary>
+    /// Adds <see cref="OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs)"/> to the tracked image 
+    /// events.
+    /// </summary>
     void OnEnable()
     {
         m_TrackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
     }
 
+    /// <summary>
+    /// Removes <see cref="OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs)"/> from the tracked image 
+    /// events.
+    /// </summary>
     void OnDisable()
     {
         m_TrackedImageManager.trackedImagesChanged -= OnTrackedImagesChanged;
     }
 
-    private void FixedUpdate()
-    {
-        debugText.text = m_WorldSpaceCanvasCamera.transform.position + " ";
-    }
-
+    /// <summary>
+    /// Updates positions related to an identified image.
+    /// </summary>
+    /// <param name="trackedImage"></param>
     void UpdateInfo(ARTrackedImage trackedImage)
     {
         if (trackedImage.trackingState == TrackingState.Tracking)
         {
-            Vector3 position = Vector3.zero;
             int pointIndex = int.Parse(trackedImage.referenceImage.name.Substring(0, 2));
-            //switch (pointIndex)
-            //{
-            //    case 0:
-            //        position = pathManager.KeyPoints[pointIndex].transform.position;
-            //        break;
-            //    case 1:
-            //        position = new Vector3(0, 0, 5);
-            //        break;
-            //}
-            //transform.position = pathManager.KeyPoints[pointIndex].transform.position;
-            //transform.rotation = pathManager.KeyPoints[pointIndex].transform.rotation;
-            //m_WorldSpaceCanvasCamera.transform.localPosition = Vector3.zero;
+            
             if (currentPoint != pointIndex)
             {
                 pathManager.KeyPoints[pointIndex].transform.position += m_WorldSpaceCanvasCamera.transform.localPosition;
@@ -65,6 +75,10 @@ public class ImageRecognintionTest : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Runs <see cref="UpdateInfo(ARTrackedImage)"/> when a tracked image is found.
+    /// </summary>
+    /// <param name="eventArgs"></param>
     void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
     {
         foreach (var trackedImage in eventArgs.added)
