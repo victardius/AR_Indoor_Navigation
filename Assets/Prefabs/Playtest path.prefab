@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 921787257021309716}
   - component: {fileID: 921787257021309717}
   m_Layer: 0
-  m_Name: JonathanPath
+  m_Name: Playtest path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
